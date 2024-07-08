@@ -11,13 +11,17 @@ document.addEventListener("DOMContentLoaded",()=>{
 })
 })
 function buildToDo(todo){
-   
+    //edge case control
+   if(todo===''){
+    alert("Kindly enter a valid item!")
+   }
     //create elements
+    else{
     let p=document.createElement('p');
-
+     let div=document.querySelector('div');
     let btn=document.createElement('button');
     let butn=document.createElement('button');
-    let div=document.querySelector('div');
+   
     //give content to the HTML elements created
     btn.textContent="purchased";
     butn.textContent="clear";
@@ -31,15 +35,16 @@ function buildToDo(todo){
     butn.addEventListener('click',handleDelete)//callback function for deleting item from list
     console.log(shoppingList) //printing array with shopping list items
     }
-    
+}
 
 
 function handleDelete(e){
     e.target.parentNode.remove();//deletes parent node including all its children nodes
- 
+  
 }
 function markPurchased(e){
    let item= e.target.parentNode;
    item.classList.toggle("purchased");//change the class name of the button parent node so that it can obtain the css properties
 //properties of class purchased have been defined in style.css 
+
 }
